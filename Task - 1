@@ -1,0 +1,64 @@
+/*
+Play around with a stack. You will be given an integer N representing the number of elements to push into the stack,
+an integer S representing the number of elements to pop from the stack, and finally an integer X, an element that
+you should look for in the stack. If it's found, print "true" on the console. If it isn't, print the smallest element
+currently present in the stack. If there are no elements in the sequence, print 0 on the console.
+Input: 
+5 2 13
+1 13 45 32 4
+
+Output:
+true
+
+
+Input:
+ 4 1 666
+420 69 13 666
+
+Output: 
+true
+*/
+
+#include <iostream>
+#include <string>
+#include <climits>
+#include <vector>
+#include <sstream>  
+#include <stack>
+#include <cstdlib>
+#include <queue> 
+
+using namespace std;
+
+int main() {
+	int totalNumbers, popNumbers, searchNumber;
+	cin >> totalNumbers >> popNumbers >> searchNumber;
+	stack<int>exampleStack;
+	for (int i = 0; i < totalNumbers;i++) {
+		int values;
+		cin >> values;
+		exampleStack.push(values);
+	}
+	for (int i = 0; i < popNumbers;i++) {
+		exampleStack.pop();
+	}
+	if (exampleStack.size() == 0) {
+		cout << "0" << endl;// cout<<'0';
+		return 0;
+	}
+	int smallest = INT_MAX;
+	while (exampleStack.size()) {
+
+		int top = exampleStack.top();
+		exampleStack.pop();
+
+		if (top == searchNumber) {
+			cout << "true" << endl;
+			return 0;
+		}
+		if (top < smallest) { 
+			smallest = top; 
+		}
+	}
+	cout << smallest; 
+}
