@@ -1,2 +1,2 @@
-# Softuni-tasks
-I will be posting every task I complete at softuni :p
+# Tasks - C++
+I will be posting every task I complete at school :p
